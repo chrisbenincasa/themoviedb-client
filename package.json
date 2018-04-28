@@ -1,0 +1,19 @@
+{
+  "name": "themoviedb-client",
+  "version": "1.0.0",
+  "description": "Typed client for interacting with themoviedb.org",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "author": "Christian Benincasa",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^8.10.10",
+    "@types/request": "^2.47.0",
+    "@types/request-promise-native": "^1.0.14"
+  }
+}

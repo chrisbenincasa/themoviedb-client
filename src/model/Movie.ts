@@ -10,13 +10,6 @@ export interface SearchMoviesRequest {
     primary_release_year?: number
 }
 
-export interface SearchTvShowsRequest {
-    query: string
-    language?: string
-    page?: number
-    first_air_date_year?: number
-}
-
 export interface Movie {
     adult: boolean
     backdrop_path?: string
@@ -44,4 +37,9 @@ export interface Movie {
     video?: boolean
     vote_average?: number
     vote_count?: number
+}
+
+export interface MovieExternalIds {
+    imdb_id?: string
+    id: number
 }

@@ -6,6 +6,7 @@ import { WithSearch } from './SearchClient';
 import { WithKeywords } from './KeywordsClient';
 import { WithMovies } from './MovieClient';
 import { WithTvApi } from './TvClient';
+import { WithPeople } from './PeopleClient';
 import * as Model from './model';
 
 export interface PagedResult<T> {
@@ -16,6 +17,6 @@ export interface PagedResult<T> {
 }
 
 export const MovieDbClient = 
-    WithMovies(WithTvApi(WithKeywords(WithSearch(BaseMovieDbClient))));
+    WithPeople(WithMovies(WithTvApi(WithKeywords(WithSearch(BaseMovieDbClient)))));
 
 export default MovieDbClient;

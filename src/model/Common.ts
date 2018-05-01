@@ -1,3 +1,8 @@
+export interface ErrorResponse {
+    status_message?: string
+    status_code?: number
+}
+
 export interface Genre {
     id: number
     name: string

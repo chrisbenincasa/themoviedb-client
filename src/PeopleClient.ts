@@ -1,11 +1,16 @@
-import { Constructor, BaseMovieDbClient } from './BaseMovieDbClient';
+import { MovieDbApiRequestor } from './MovieDbClient';
 import { CoreOptions } from 'request';
 import * as Model from './model';
 
-export const WithPeople = <T extends Constructor<BaseMovieDbClient>>(Base: T) =>
-    class extends Base {
-        getPerson(id: number, language?: string, append_to_response?: string[]): Promise<Model.Person> {
-            let opts = { qs: { language, append_to_response: append_to_response ? append_to_response.join(',') : null } }
-            return super.makeRequest(`person/${id}`, opts);
-        }
+export class PeopleAccessClient {
+    requestor: MovieDbApiRequestor
+
+    constructor(requestor: MovieDbApiRequestor) {
+        this.requestor = requestor
     }
+
+    getPerson(id: number, language?: string, append_to_response?: string[]): Promise<Model.Person> {
+        let opts = { qs: { language, append_to_response: append_to_response ? append_to_response.join(',') : null } }
+        return this.requestor.makeRequest(`person/${id}`, opts);
+    }
+}

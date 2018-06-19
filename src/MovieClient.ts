@@ -1,6 +1,5 @@
-import { MovieDbApiRequestor } from './MovieDbClient';
-import { CoreOptions } from 'request';
 import * as Model from './model';
+import { MovieDbApiRequestor } from './MovieDbClient';
 
 export class MovieAccessClient {
     requestor: MovieDbApiRequestor
@@ -9,8 +8,8 @@ export class MovieAccessClient {
         this.requestor = requestor
     }
 
-    getMovie(id: number, language?: string, append_to_response?: string[]): Promise<Model.Movie> {
+    async getMovie(id: number, language?: string, append_to_response?: string[]): Promise<Model.Movie> {
         let opts = { qs: { language, append_to_response: append_to_response ? append_to_response.join(',') : null } }
-        return this.requestor.makeRequest(`movie/${id}`, opts);
+        return this.requestor.makeRequest<Model.Movie>(`movie/${id}`, opts);
     }
 }

@@ -1,8 +1,7 @@
-import { MovieAccessClient } from './MovieClient';
-
 import { CoreOptions } from 'request';
 import request from 'request-promise-native';
-import * as qs from 'querystring';
+
+import { MovieAccessClient } from './MovieClient';
 import { PeopleAccessClient } from './PeopleClient';
 import { SearchAccessClient } from './SearchClient';
 import { TvAccessClient } from './TvClient';
@@ -51,8 +50,6 @@ export class MovieDbApiRequestor {
         } else {
             opts.qs = { api_key: this.apiKey };
         }
-
-        console.log(`Requesting url = ${MovieDbApiRequestor.baseUrl + path}`);
 
         return request(MovieDbApiRequestor.baseUrl + path, options).then(response => {
             return response as T;

@@ -1,5 +1,5 @@
-import { Genre } from "./Common";
-import { CastMember, CrewMember } from ".";
+import { CastMember, CrewMember } from '.';
+import { Genre } from './Common';
 
 export interface TvShow {
     backdrop_path?: string

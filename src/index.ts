@@ -1,2 +1,2 @@
 export * from './MovieDbClient';
-export * from './model';
+export * from './model/index';

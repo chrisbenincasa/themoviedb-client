@@ -4,3 +4,7 @@ export interface SearchMultiRequest {
     page?: number, 
     include_adult?: boolean
 }
+
+export interface MultiSearchResponseFields {
+    media_type: string
+}

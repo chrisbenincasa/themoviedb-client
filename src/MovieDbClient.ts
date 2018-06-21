@@ -6,13 +6,6 @@ import { PeopleAccessClient } from './PeopleClient';
 import { SearchAccessClient } from './SearchClient';
 import { TvAccessClient } from './TvClient';
 
-export interface PagedResult<T> {
-    page: number
-    results: T[]
-    total_results: number
-    total_pages: number
-}
-
 export class MovieDbClient {
     movies: MovieAccessClient;
     people: PeopleAccessClient;

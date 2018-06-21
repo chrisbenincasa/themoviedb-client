@@ -1,5 +1,5 @@
 import * as Model from './model';
-import { MovieDbApiRequestor, PagedResult } from './MovieDbClient';
+import { MovieDbApiRequestor } from './MovieDbClient';
 
 export class SearchAccessClient {
     requestor: MovieDbApiRequestor
@@ -8,18 +8,18 @@ export class SearchAccessClient {
         this.requestor = requestor
     }
 
-    async searchMovies(request: Model.SearchMoviesRequest): Promise<PagedResult<Model.Movie>> {
+    async searchMovies(request: Model.SearchMoviesRequest): Promise<Model.PagedResult<Model.Movie>> {
         const opts = { qs: request };
-        return this.requestor.makeRequest<PagedResult<Model.Movie>>('search/movie', opts);
+        return this.requestor.makeRequest<Model.PagedResult<Model.Movie>>('search/movie', opts);
     }
 
-    async searchTvShows(request: Model.SearchTvShowsRequest): Promise<PagedResult<Model.TvShow>> {
+    async searchTvShows(request: Model.SearchTvShowsRequest): Promise<Model.PagedResult<Model.TvShow>> {
         const opts = { qs: request };
-        return this.requestor.makeRequest<PagedResult<Model.TvShow>>('search/tv', opts);
+        return this.requestor.makeRequest<Model.PagedResult<Model.TvShow>>('search/tv', opts);
     }
 
-    async searchMulti(request: Model.SearchMultiRequest): Promise<PagedResult<Model.Movie | Model.TvShow | Model.Person>> {
+    async searchMulti(request: Model.SearchMultiRequest): Promise<Model.MultiSearchResponse> {
         const opts = { qs: request };
-        return this.requestor.makeRequest<PagedResult<Model.Movie | Model.TvShow | Model.Person>>('search/multi', opts);
+        return this.requestor.makeRequest<Model.MultiSearchResponse>('search/multi', opts);
     }
 }

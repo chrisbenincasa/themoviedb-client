@@ -1,6 +1,6 @@
 {
   "name": "themoviedb-client-typed",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Typed client for interacting with themoviedb.org",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -12,7 +12,8 @@
     "url": "git+https://github.com/chrisbenincasa/themoviedb-client.git"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "tsc"
   },
   "dependencies": {
     "request": "^2.85.0",

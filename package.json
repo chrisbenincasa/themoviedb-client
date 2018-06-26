@@ -1,6 +1,6 @@
 {
   "name": "themoviedb-client-typed",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Typed client for interacting with themoviedb.org",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

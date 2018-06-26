@@ -3,6 +3,7 @@ export * from './Movie';
 export * from './Person';
 export * from './Common';
 export * from './Search';
+export * from './Certification';
 
 import { Movie } from './Movie';
 import { TvShow } from './Tv';

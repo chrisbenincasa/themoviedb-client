@@ -6,6 +6,7 @@ import { PeopleAccessClient } from './PeopleClient';
 import { SearchAccessClient } from './SearchClient';
 import { TvAccessClient } from './TvClient';
 import { CertificationAccessClient } from './CertificationClient';
+import { GenreAccessClient } from './GenresClient';
 
 export class MovieDbClient {
     movies: MovieAccessClient;
@@ -13,6 +14,7 @@ export class MovieDbClient {
     search: SearchAccessClient;
     tv: TvAccessClient;
     certifications: CertificationAccessClient;
+    genres: GenreAccessClient;
     
     requestor: MovieDbApiRequestor;
     apiKey: string;
@@ -25,6 +27,7 @@ export class MovieDbClient {
         this.search = new SearchAccessClient(this.requestor);
         this.tv = new TvAccessClient(this.requestor);
         this.certifications = new CertificationAccessClient(this.requestor);
+        this.genres = new GenreAccessClient(this.requestor);
     }
 }
 

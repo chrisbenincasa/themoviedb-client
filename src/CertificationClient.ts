@@ -17,8 +17,8 @@ export class CertificationAccessClient {
         return this.requestor.makeRequest<Model.CertificationListResponse>('certification/tv/list').then(this.processResponseToMap);
     }
 
-    private processResponseToMap(r: any): Map<string, Certification> {
-        const map = new Map<string, Model.Certification>();
+    private processResponseToMap(r: any): Map<string, Certification[]> {
+        const map = new Map<string, Model.Certification[]>();
         Object.keys(r.certifications).forEach(key => {
             map.set(key, r.certifications[key]);
         });

@@ -26,7 +26,11 @@ export interface TvShow {
     status?: string
     type?: string
     vote_average?: number
-    vote_count?: number
+    vote_count?: number,
+
+    // Join fields
+    content_ratings?: TvContentRatings,
+    credits?: TvShowCreatedBy
 }
 
 export interface TvNetwork {
@@ -85,4 +89,13 @@ export interface SearchTvShowsRequest {
 export interface TvExternalIds {
     tvdb_id?: number
     id: number
+}
+
+export interface TvContentRatings {
+    results: TvContentRating[]
+}
+
+export interface TvContentRating {
+    iso_3166_1: string,
+    rating: string
 }

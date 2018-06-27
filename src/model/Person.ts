@@ -1,3 +1,7 @@
+import { Movie } from "./Movie";
+import { TvShow } from "./Tv";
+import { MultiSearchResponseFields } from ".";
+
 export interface Person {
     adult?: boolean
     also_known_as?: object[]
@@ -12,6 +16,12 @@ export interface Person {
     place_of_birth?: string
     popularity?: number
     profile_path?: string
+
+    // Join fields
+    credits?: PersonCredits,
+    combined_credits?: PersonCredits
+    movie_credits?: PersonMovieCredits,
+    tv_credits?: PersonTvCredits
 }
 
 export interface CastMember {
@@ -32,4 +42,20 @@ export interface CrewMember {
     job?: string
     name?: string
     profile_path?: string
+}
+
+export interface PersonMovieCredits {
+    crew: Partial<Movie>[],
+    cast: Partial<Movie>[]
+}
+
+export interface PersonTvCredits {
+    crew: Partial<TvShow>[],
+    cast: Partial<TvShow>[]
+}
+
+
+export interface PersonCredits { 
+    crew: (Partial<Movie | TvShow> & MultiSearchResponseFields)[], 
+    cast: (Partial<Movie | TvShow> & MultiSearchResponseFields)[] 
 }

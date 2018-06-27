@@ -12,4 +12,9 @@ export class PeopleAccessClient {
         let opts = { qs: { language, append_to_response: append_to_response ? append_to_response.join(',') : null } }
         return this.requestor.makeRequest<Model.Person>(`person/${id}`, opts);
     }
+
+    async getPopular(language?: string, page?: number): Promise<Partial<Model.Person>> {
+        let opts = { qs: { language, page }};
+        return this.requestor.makeRequest<Partial<Model.Person>>('person/popular', opts);
+    }
 }

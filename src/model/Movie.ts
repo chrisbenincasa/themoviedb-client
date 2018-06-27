@@ -1,4 +1,6 @@
 import { Genre, ProductionCompany } from "./Common";
+import { CastMember } from ".";
+import { CrewMember } from "./Person";
 
 export interface SearchMoviesRequest {
     query: string
@@ -37,9 +39,42 @@ export interface Movie {
     video?: boolean
     vote_average?: number
     vote_count?: number
+
+    // Join fields
+    release_dates?: MovieReleaseDates,
+    credits?: MovieCredits
 }
 
 export interface MovieExternalIds {
     imdb_id?: string
     id: number
+}
+
+export interface MovieReleaseDates {
+    results: MovieReleaseDate[]
+}
+
+export interface MovieReleaseDate {
+    iso_3166_1: string,
+    release_dates: MovieCountryRelease[]
+}
+
+export interface MovieCountryRelease {
+    certification?: string,
+    release_date?: string,
+    type: number // Maps to MovieReleaseType
+}
+
+export enum MovieReleaseType {
+    Premiere = 1,
+    LimitedTheatrical = 2,
+    Theatrical = 3,
+    Digital = 4,
+    Physical = 5,
+    TV = 6
+}
+
+export interface MovieCredits {
+    cast: CastMember[],
+    crew: CrewMember[]
 }
